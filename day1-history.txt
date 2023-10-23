@@ -189,3 +189,148 @@ diff /usr/include/ /tmp/restore/include/
 git config --global core.hookspath 'hooks' && git config --global credential.helper store
 history
 history | awk '$1 > 632' | cut -c 8- > lin2_Oct/day1-history.txt
+cd lin2_Oct/
+git status
+git add .
+git commit -m "Adding day1 file"
+git push
+git pull
+ls -la
+cd
+cat /etc/services 
+cat /etc/services | grep 53
+cat /etc/services | grep -i dns
+cat /etc/services | grep -i http
+cat /etc/services | grep -i 123
+nmpa 192.168.1.90
+nmap 192.168.1.90
+netstat -vatnulp
+netstat --help
+netstat -vatnulp
+ss -vatnulp
+ss 
+ss -tnulp
+netstat -vatnulp
+ip -s link
+systemctl status firewalld.service 
+getenforce 
+ethtool -S ens33 
+ethtool -S ens33 | grep -i error
+netstat -i
+iostat
+vmstat 5
+sar -A
+find / -name sysstat
+vi /etc/sysconfig/sysstat
+cd /var/log/sa
+ls -la
+cd
+top
+htop
+free -m
+cat /proc/meminfo 
+cat /proc/cpuinfo 
+cat /proc/cpuinfo | grep -i vmx
+dnf install tuned
+systemctl status tunder
+systemctl status tunded
+systemctl status tuned
+systemctl start tuned
+tuned-adm status
+tuned-adm list
+tuned-adm active 
+tuned-adm recommend 
+tuned-adm profile balanced
+sysctl -a
+sysctl -a > balanced.txt
+tuned-adm profile virtual-guest 
+sysctl -a > virtual.txt
+diff virtual.txt balanced.txt 
+dnf install stress-ng
+stress-ng --help
+stress-ng --cpu 8 --io 4 --vm 2 --vm-bytes 128M --fork 4 --timeout 10s
+stress-ng --cpu 8 --io 4 --vm 2 --vm-bytes 128M --fork 4 --timeout 2m
+tcpdump --help
+man tcpdump
+telnet 192.168.1.1 443
+curl -v telnet://192.168.1.1:443
+curl -v telnet://192.168.1.1:22
+curl -v telnet://192.168.1.1:80
+curl -v telnet://192.168.1.90:80
+curl -v telnet://192.168.1.90:22
+man tcpdump
+ls -la /lib/systemd/system/runlevel*.target
+systemctl list-units
+systemctl list-units --type target
+systemctl list-units --type target --all
+systemctl list-units --type 
+systemctl list-units --type -h
+systemctl list-units --help
+systemctl get-default 
+systemctl set-default multi-user.target 
+ls -la /etc/systemd/system/default.target
+init 3
+systemctl isolate graphical.target 
+systemctl status sshd
+systemctl status chronyd
+systemctl stop chronyd
+systemctl status chronyd
+systemctl disable chronyd
+ls -la /etc/systemd/system/multi-user.target.wants/
+dnf install chronyd
+dnf install chrony
+systemctl status chronyd
+systemctl enable --now chronyd
+systemctl status chronyd
+sudo yum remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-engine
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker
+systemctl status docker
+docker run -d --name webserver -p 8080:80 nginx
+docker ps -a
+docker rm webserver 
+docker run -d --name webserver -p 8080:80 nginx
+docker ps
+docker stop webserver 
+cp -rp /lib/systemd/system/sshd.service /etc/systemd/system/docker-webserver.service
+vi /etc/systemd/system/docker-webserver.service
+which docker
+vi /etc/systemd/system/docker-webserver.service
+docker start --help
+docker stop --help
+vi /etc/systemd/system/docker-webserver.service
+systemctl daemon-reload 
+systemctl status docker-webserver.service 
+systemctl enable --now docker-webserver.service
+systemctl status docker-webserver.service 
+docker ps 
+cp -rp /etc/systemd/system/docker-webserver.service lin2_Oct/
+ls -la
+cp -rp heredoc.sh lin2_Oct/
+vi lin2_Oct/skrypt.sh
+chmod +x lin2_Oct/skrypt.sh
+cp -rp lin2_Oct/docker-webserver.service /etc/systemd/system/shellscript.service
+vi /etc/systemd/system/shellscript.service
+vi lin2_Oct/skrypt.sh 
+cp lin2_Oct/skrypt.sh /usr/bin/
+vi lin2_Oct/skrypt.sh 
+vi /etc/systemd/system/shellscript.service
+systemctl daemon-re
+systemctl daemon-reload 
+systemctl start shellscript.service 
+systemctl sttus shellscript.service 
+systemctl status shellscript.service 
+tail -f /tmp/my-service.log
+systemctl stop shellscript.service 
+systemctl status shellscript.service 
+tail -f /tmp/my-service.log
+cp -rp /etc/systemd/system/shellscript.service lin2_Oct/
+cd lin2_Oct/
+git status
+git add.
+git add .
+git commit -m "Adding day1 files"
+git push
+history | awk '$1 > 632' | cut -c 8- > day1-history.txt
