@@ -1,0 +1,11 @@
+[Unit]
+Description=My shell script application
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/skrypt.sh -o start
+ExecStop=/usr/bin/skrypt.sh -o stop
+Restart=always
+
+[Install]
+WantedBy=default.target
