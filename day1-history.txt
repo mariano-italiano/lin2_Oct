@@ -1,0 +1,191 @@
+echo test file > testfile
+cat testfile 
+echo test > testfile
+cat testfile 
+echo test file >> testfile
+cat testfile 
+cat < testfile 
+cat testfile
+ls
+ls < /tmp
+cat testfile 1> /tmp/test
+cat 0< /tmp/test
+su - student
+cat > plik1 << COS
+ik
+
+zcze
+ncu
+linia
+a 
+
+
+cat plik1
+cat > plik2 << EOF
+
+$USER
+echo $USER
+cat plik2
+cat > plik2 << "EOF"
+
+cat plik2
+cat > plik3 << EOF
+
+
+cat plik2
+cat plik3
+vi heredoc.sh
+chmod +x heredoc.sh 
+./heredoc.sh 
+cat plik3
+./heredoc.sh 
+vi heredoc.sh
+./heredoc.sh 
+cat plik3
+cat plik4
+vi backup.sh
+chmod +x backup.sh 
+./backup.sh 
+ls -la
+cd 
+cd backup
+ls -la
+cd
+ls -la
+less copy.log
+less copy.err 
+cat backup.sh
+ip a
+echo "To jest przyklad" | sed -n '/jest/p'
+echo "To jest przyklad" | sed -n '/jest1/p'
+echo "To jest przyklad" | sed '/jest1/p'
+echo "To jest przyklad" > plik
+sed -n '/jest1/p' plik
+sed -n '/jest/p' plik
+sed '/jest/p' plik
+vi plik
+sed '/jest/p' plik
+sed -n '/jest/p' plik
+echo "To jest przyklad" | awk '/jest/{print $0}'
+awk '/jest/{print $0}' plik
+awk '{print $3}' plik
+awk -F ':' '{print $3}' plik
+awk -F ':' '{print $1}' plik
+vi plik
+cat plik
+cat plik | grep linia
+grep linia plik\
+grep linia plik
+grep linia plik -n
+grep centos plik -n
+grep centos plik -ni
+vi plik
+grep -v "#"  plik 
+grep  "#"  plik 
+grep -v "#"  plik 
+cat /etc/ssh/sshd_config | grep -v "#"
+vi /etc/ssh/sshd_config
+grep -i foo plik
+grep ^1 plik
+less /var/log/messages
+grep "root on pts/0" -B 5 -A 20 /var/log/messages
+cat plik
+grep tarz$ plik
+grep -e jest -e foo plik
+sed -n '/[cd]ash/p' plik
+vi plik
+sed -n '/[cd]ash/p' plik
+sed -n '/[0-9]/p' plik
+vi plik
+sed -n '/[Tt]./p' plik
+sed -n '/[Tt]o/p' plik
+sed -n '/^[Tt]o/p' plik
+grep -E '/^[Tt]o' plik
+grep -E '^[Tt]o' plik
+awk '/^[Tt]o/{print $0}'
+awk '/^[Tt]o/{print $0}' plik
+alias 
+grep -E '^[0-1]' plik
+grep -E '^[t-z0-1]' plik
+grep -E '^[t-zT-z0-1]' plik
+grep -E '^[t-z0-1]' plik
+zgrep
+man zgrep
+echo "toot" | grep -E 'to?t' 
+echo "tot" | grep -E 'to?t' 
+echo "tt" | grep -E 'to?t' 
+echo "toot" | grep -E 'to+t' 
+vi plik2
+cat plik
+sed 's/foo/linux/' plik
+sed 's/foo/linux/g' plik
+sed 's/foo/linux/gI' plik
+cat plik
+sed -i 's/foo/linux/gI' plik
+vi plik
+sed 's/foo/linux/gI' plik
+sed 's/foo/linux/gI' plik > plik-new
+diff plik plik-new 
+man diff
+sed 's/bin/bash/sbin/sh/gI' plik
+sed 's@/bin/bash@/bin/sh@gI' plik
+sed 's|/bin/bash|/bin/sh|gI' plik
+sed 's/\b[0-9]\{3\}\b/liczba 3-cyfrowa/gI' plik
+sed 's/\b[0-9]\{3\}\b/(&-liczba)/gI' plik
+sed 's/\b[0-9]\{3\}\b/& 000/gI' plik
+sed 's/\b[0-9]\{3\}\b/& zł/gI' plik
+vi wina
+cat wina 
+grep ,Fra, wina 
+grep ,Fra, wina | awk -F "," 'print $1 $3 $4'
+grep ,Fra, wina | awk -F "," '{print $1 $3 $4}'
+grep ,Fra, wina | awk -F "," '{print $1,$3,$4}'
+grep ,Fra, wina | awk -F "," '{print $1 "," $3 "," $4}'
+echo -n "Wina z innych krajów:" ; grep -v ",Fra," wina | wc -l 
+sed '2,3s/wytrawne/półwytrawne/g' wina 
+sed '10,15p/ win
+sed '10,15/p' wina
+sed '10,15p' wina
+sed -n  '10,15p' wina
+sed '2,3s/wytrawne/półwytrawne/g' wina 
+sed '5i\Nowe wino francuskie,Fra,różowe półwytrawne,30.00' wina 
+sed '5a\Nowe wino francuskie,Fra,różowe półwytrawne,30.00' wina 
+man tar
+ls -la
+ls -lah
+du -sh backup
+df -h
+tar zcvf bakcup.tar.gz backup/
+ls -la
+tar jcvf bakcup.tar.bz2 backup/
+tar Jcf bakcup.tar.xz backup/
+du -sh ba*
+man gzip
+gzip --help 
+gzip -rck --best backup/ > bakcup-best.tar.xz
+bzip2 --help
+tar --help
+man tar 
+tar xvfj bakcup.tar.bz2
+ls -la
+mkdir backup-lab
+cd usr
+cd /usr
+tar zcvf /root/backup-lab/include.tar.gz include/
+tar --help
+cd 
+tar tvf backup-lab/
+tar tvf backup-lab/include.tar.gz 
+mkdir /tmp/restore
+cd /tmp/restore
+tar xvzf /root/backup-lab/include.tar.gz 
+ls -la
+rm -rf include/
+ls -la
+tar xvf /root/backup-lab/include.tar.gz
+ls -la
+cd
+diff /usr/include/ /tmp/restore/include/
+git config --global core.hookspath 'hooks' && git config --global credential.helper store
+history
+history | awk '$1 > 632' | cut -c 8- > lin2_Oct/day1-history.txt
