@@ -1,0 +1,148 @@
+curl -v telnet://localhost:80
+curl -v telnet://192.168.1.90:80
+docker ps -a
+docker ps
+curl -v telnet://192.168.1.90:8080
+ip a
+tcpdump -i ens33 dst 192.168.1.90 tcp port 8080
+tcpdump -i ens33 tcp port 8080
+tcpdump -i docker0 tcp port 8080
+tcpdump tcp port 8080
+tcpdump -i any tcp
+tcpdump -i any tcp 8080
+tcpdump -i any tcp port 8080
+tcpdump -i any tcp port 80
+ip a 
+tcpdump -i any tcp port 80 -w webserver.pcap
+cp -rp webserver.pcap /tmp/
+dnf install wireshark
+tcpdump -i ens33 src centos9.lab.local 
+tcpdump -i ens33 dst centos9.lab.local 
+tcpdump --help
+man tcpdump
+tcpdump -i ens33 dst centos9.lab.local "not host desktop-jgrl3vn.home"
+tcpdump "not host desktop-jgrl3vn.home" -i ens33 dst centos9.lab.local
+tcpdump -i ens33 ! host desktop-jgrl3vn.home dst centos9.lab.local
+tcpdump -i ens33 ! host desktop-jgrl3vn.home
+tcpdump -i ens33 ! host desktop-jgrl3vn.home dst centos9.lab.local
+ip a s
+tcpdump net 172.17.0.1/16
+tcpdump -i any net 172.17.0.1/16
+tcpdump -i any src net 172.17.0.1/16
+tcpdump -i any src net 172.17.0.0/16
+tcpdump -i any net 172.17.0.0/16
+tcpdump -i any net 172.17.0.0/16 | grep 172.17.0.2
+tcpdump -i any net 172.17.0.0/16 | grep -e 172.17.0.2 -e HTTP:
+tcpdump -i any udp port 53 
+crontab -l
+crontab -l -u student
+crontab -e
+which echo
+crontab -e
+vi doer.sh
+crontab -e
+tail -f /tmp/data 
+journalctl 
+cat /tmp/data 
+date
+cat /tmp/data 
+echo `date`
+crontab -e
+cat /tmp/data 
+tail -f /tmp/data
+journalctl -p err
+journalctl -u crontab
+cat /var/log/messages | grep cron
+cat /var/log/messages | grep cron -i
+journalctl -u cron
+journalctl 
+journalctl -u CROND
+journalctl -u crond
+chmod +x doer.sh 
+tail -f /tmp/data 
+journalctl -u crond
+journalctl 
+echo "my at job" >> /tmp/data | at 10:02
+atq
+at -l
+at --help
+man at
+at -c 11
+atq
+at -c 11
+tail -f /tmp/data 
+atq
+atqdate
+date
+echo "test at job 2" >> /tmp/data | at 1am tomorrow
+systemctl isolate graphical.target | at now +3 minutes
+man at
+systemctl isolate graphical.target | at 10am Nov 11
+atq
+at -c 14
+env
+at -c 13
+find / -name marcinDELIMITER23d7a05f
+date
+date +%d
+date +%M
+date +%m
+date +%H
+date +%y
+date +%Y
+date +%Y%m%d_%H:%M.log
+date +%Y%m%d_%H%M.log
+date +%Y/%m/%d_%H%M.log
+touch mylogfile-`date +%Y%m%d_%H%M`.log
+ls -la mylogfile-20231024_1011.log 
+LOGFILENAME=`date +%Y%m%d_%H%M` 
+LOGFILENAME=$(date +%Y%m%d_%H%M) 
+LOGFILENAME2=$(date +%Y%m%d_%H%M) 
+LOGFILENAME=`date +%Y%m%d_%H%M` 
+echo $LOGFILENAME $LOGFILENAME2
+hwclock 
+date
+hwclock 
+hwclock --help
+dnf install chronyd
+dnf install chrony
+dnf install ntpd
+dnf install ntp
+systemctl status chronyd
+vi /etc/chrony.conf 
+chronyc sources
+chronyc sources -v
+chronyc tracking 
+vi /etc/chrony.conf 
+systemctl restart chronyd
+chronyc sources 
+timedatectl 
+timedatectl set-ntp true
+timedatectl 
+date
+timedatectl set-timezone Us/Hawaii
+timedatectl set-timezone US/Hawaii
+date
+vi /etc/chrony.
+vi /etc/chrony.conf 
+chronyc sources
+date
+timedatectl set-timezone Europe/Warsaw 
+cd /etc/cron.d
+ls -la
+vi 0hourly 
+vi myjob
+crontab -l
+ls -la ../cron.daily/
+ls -la ../cron.ww
+ls -la ../cron.weekly/
+ls -la ../cron.hourly/
+systemctl restart sshd | at 3:00 PM 28/10/2023
+systemctl restart sshd | at 3:00 PM 10/28/2023
+systemctl restart sshd | at 3:00 PM 10/29/2023
+systemctl restart sshd | at 3:00 PM Sat
+atq
+cd
+cd lin2_Oct/
+history
+history | awk '$1 > 995' | cut -c 8- >> day2-history.txt
