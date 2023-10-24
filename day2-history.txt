@@ -146,3 +146,377 @@ cd
 cd lin2_Oct/
 history
 history | awk '$1 > 995' | cut -c 8- >> day2-history.txt
+vi day2-history.txt 
+git status
+git add 
+git add .
+git commit -m "Adding day2 history file"
+git push
+cd lin
+cd lin2_Oct/
+git pull
+git status
+localectl set-locale LANG=en_US.UTF-8 
+systemctl isolate graphical.target 
+systemctl isolate multi-user.target 
+cd /home/studen
+cd /home/student/
+pwd
+cd /
+tree
+cd
+ls -la
+ls -lai
+cat /proc/cpuinfo
+cat /proc/filesystems
+cat /proc/filesystems | grep -v nodev
+df -hT 
+cat /proc/partitions 
+ln -s plik1 softlink
+ls -la
+ls -la -i | gre -i plik1
+ls -la -i | grep -i plik1
+vi softlink 
+vi plik1
+rm plik1
+ls -la
+touch plik1 
+ls -la
+rm plik1
+ls -la
+vi softlink 
+ls -la
+cat plik1
+ln plik1 hardlink
+ls -lai
+touch hardlink 
+ls -lai
+vi hardlink 
+vi plik1
+rm plik1
+ls -la
+vi hardlink 
+which sh
+ls -la /bin/sh 
+fi
+ls -la
+ln hardlink plik1
+ls -la
+ls -lai
+find / -inum 17675290 
+cat /proc/pa
+cat /proc/partitions 
+partprobe -s
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host0/scan 
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host1/scan 
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+for host in /sys/class/scsi_host/*; do echo "- - -" > $host/scan; cat /proc/partitions ;done
+df -h
+df -hT 
+du -sh /*
+du -sh /* 2> /dev/null
+df -h
+du -sh --max-depth=2 /* 2> /dev/null
+du -h --max-depth=2 /* 2> /dev/null
+cd cd /home
+cd /home
+du -h --max-depth=2 /* 2> /dev/null
+du -h --max-depth=2 . 2> /dev/null
+cp -rp student/nowy student/Downloads/
+cp -rp student/nowy2 student/Downloads/
+du -h --max-depth=2 . 2> /dev/null
+du -h --max-depth=3 . 2> /dev/null
+cd
+blkid
+df -h
+lsblk
+lshw 
+lshw -class disk -short
+lshw -class disk 
+lsblk
+fdisk /dev/sdb 
+cat /proc/partitions 
+fdisk /dev/sdb 
+cat /proc/partitions 
+gdisk /dev/sdb 
+cat /proc/partitions 
+blkid
+mkfs.xfs /dev/sdb1 
+mkdir /app1
+cd /app1
+ls -al
+cd ..
+cd
+df -h
+du -sh /app1/
+mount /dev/sdb1 /app1/
+du -sh /app1/
+df -h
+cd /app1/
+touchfile test1 test2
+touch file test1 test2
+mkdir test aplikacja1
+ls -la
+df -hT
+xfs_info /dev/sdb1
+cd
+vi /etc/fstab 
+cd /boot
+ls -la
+ls -la grub2/
+vi grub2/grub.cfg 
+ls -lha grub2/
+ls -lha 
+cd
+df -h
+vi /etc/fss
+vi /etc/fstab 
+man /etc/fstab
+man mount
+man /etc/fstab
+vi /etc/fstab 
+mount 
+mount | grep /dev
+blkid
+vi /etc/fstab 
+df -h
+umount /app1 
+df -h
+mount -a 
+df -h
+vi /etc/fstab 
+cat /proc/mounts 
+blkid
+xfs_admin -L App1Storage /dev/sdb1
+umoun /app1/
+umount /app1/
+xfs_admin -L App1Storage /dev/sdb1
+mount -a 
+blkid
+vi /etc/fstab 
+umount /app1 
+mount -a 
+df -h
+vi /etc/fstab 
+mkswap -L swap-extra /dev/sdb2
+df -g
+df -h
+umount /app1 
+swapon -s
+man dd
+dd if=/dev/urandom of=swapfile1 bs=1024M count=10
+rm swapfile1 
+dd if=/dev/urandom of=swapfile1 bs=1G count=1
+mkswap swapfile1 
+swapon -s
+swapon swapfile1
+swapon -s
+vi /etc/fstab 
+swapoff swapfile1
+swapon -s
+swapon -a
+swapon -s
+vi /etc/fstab 
+swapoff swapfile1
+swapon -s
+umount /app1/
+gdisk /dev/sdb
+wipefs -a /dev/sdb
+cat /proc/partitions 
+pvcreate /dev/sdb
+vgcreate /dev/sdb vg-data
+vgcreate --help
+vgcreate vgdata /dev/sdb
+pvs
+vgs
+vgdisplay vgdata
+vgcreate --help
+vgchange --help
+vgchange -s 1M vgdata 
+vgdisplay vgdata
+lvcreate --help
+vgs
+lvcreate -L 1G -n lv1 vgdata 
+lvs
+mkfs.xfs /dev/mapper/vgdata-lv1
+mkdir /lv1
+mount /dev/vgdata/lv1 /lv1/
+df -h
+cd /dev/mapper/
+ls -la
+cd ..
+ls -la
+cd dm-2
+file dm-2
+cd mapper/
+ls -la
+cd vgdata
+cd ../vgdata/
+ls -la
+cat /proc/partitions 
+lsblk
+lv
+lvs
+vgs
+cd /lv1/
+dd if=/dev/urandom of=bigfile count=1G count=1
+dd if=/dev/urandom of=bigfile bs=1G count=1
+df -h
+vgs
+lvextend -l 100%FREE lv1
+lvextend -l 100%FREE /dev/vgdata/lv1
+df -h
+xfs_growfs /dev/vgdata/lv1
+df -h
+dd if=/dev/urandom of=bigfile bs=2G count=1
+df -h
+dd if=/dev/urandom of=bigfile2 bs=500M count=1
+df -h
+vgs
+lvs
+lvextend -l 100%FREE /dev/vgdata/lv1
+vgs
+lvextend -L +1G /dev/vgdata/lv1
+vgs
+xfs_growfs /dev/vgdata/lv1
+df -h
+dd if=/dev/urandom of=bigfile2 bs=1500M count=1
+df -h
+vgs
+cat /proc/partitions 
+partprobe -s
+cat /proc/partitions 
+for host in /sys/class/scsi_host/* ; do echo "- - -" $host/scan; cat /proc/partitions; done
+for host in /sys/class/scsi_host/* ; do echo "- - -" > $host/scan; cat /proc/partitions; done
+cat /proc/partitions 
+pvcreate /dev/sdc
+vgs
+vgextend --help
+vgextend vgdata /dev/sdc
+vgs
+lvresize --help
+lvresize -L +1G /dev/vgdata/lv1 
+df -h
+xfs_growfs /dev/vgdata/lv1
+df -h
+lvresize -L +1G /dev/vgdata/lv1 -r
+df -h
+lvextend --help
+ls -la
+mount -a
+df -hg
+df -h
+cd 
+cd /lv1/
+ls -la
+touch file1
+echo "test" > file2
+mkdir testdir
+cd testdir
+rpm -qa > packages.txt
+less packages.txt 
+cd ..
+tree
+cd
+df -h
+xfsdump -f /tmp/lv1.dump /lv1
+umount /lv1
+lvs
+lvreduce -L 4G /dev/vgdata/lv1 
+lvremove /dev/vgdata/lv1 
+lvcreate -L 4G /dev/vgdata/lv1
+lvcreate -L 4G -n lv1 vgdata
+lvs
+mkfs.xfs /dev/vgdata/lv1 
+mount /dev/vgdata/lv1 
+mount /dev/vgdata/lv1 /lv1
+xfsrestore -f /tmp/lv1.dump /lv1/ 
+cd /lv1/
+ls -la
+tree
+less testdir/packages.txt 
+df -h
+cd
+lvcreate -L 4G -s -n lv1-snap /dev/vgdata-lv1
+lvcreate -L 4G -s -n lv1-snap /dev/mapper/vgdata-lv1
+vgs
+lvresize -l +100%FREE -r lv1
+lvresize -l +100%FREE -r /dev/vgdata/lv1
+lvcreate -L 4G -s -n lv1-snap /dev/mapper/vgdata-lv1
+for host in /sys/class/scsi_host/* ; do echo "- - -" > $host/scan; cat /proc/partitions; done
+pvcreate /dev/sdd
+vgextend vgdata /dev/sdd
+vgs
+lvcreate -L 4G -s -n lv1-snap /dev/mapper/vgdata-lv1
+umount /lv1
+lvremove /dev/vgdata/lv1 
+lvcreate -L 4G -n lv1 vgdata 
+mkfs.xfs /dev/vgdata/lv1
+mount /dev/vgdata/lv1 /lv1/
+xfsrestore -f /tmp/lv1.dump /lv1/
+lvs
+vgas
+vga
+vgs
+lvcreate -L 4G -s -n lv1-snap /dev/mapper/vgdata-lv1
+lvs
+cd lv1
+cd /lv1/
+ls -la
+rm bigfile
+dd if=/dev/urandom of=randomfile bs=1G count=1
+lvs
+df -h
+lvs
+watch -n1 lvs
+ls -la
+cd
+umount /lv1
+lvrename /dev/vgdata/lv1
+lvrevoce /dev/vgdata/lv1
+lvremove /dev/vgdata/lv1
+lvs
+lvcreate -L 4G -l lv1 vgdata
+lvcreate -L 4G -n lv1 vgdata
+mkfs.xfs /dev/vgdata/lv1
+mount /dev/vgdata/lv1 /lv1
+xfsrestore -f /tmp/lv1.dump /lv1/
+cd /lv1/
+ls -la
+lvcreate -L 4G -s -n lv1-snap /dev/mapper/vgdata-lv1
+rm bigfile
+dd if=/dev/urandom of=randomfile bs=1G count=1
+lvs
+lvconvert --help
+lvconvert --merge /dev/vgdata/lv1
+cd 
+umount /lv1 
+lvconvert --merge /dev/vgdata/lv1
+lvconvert --merge /dev/vgdata/lv1 --trackchanges
+lvs
+df -h
+mount /dev/vgdata/lv1-snap /lv1
+cd /lv1
+ls -la
+lvs
+lvconvert --help
+lvconvert --merge /dev/vgdata/lv1 --trackchanges --yes
+lvconvert --merge /dev/vgdata/lv1 --yes
+lvcreate --help
+lvremove /dev/vgdata/lv1-snap 
+cd 
+umount /lv1 
+lvremove /dev/vgdata/lv1-snap 
+lvs
+mount /dev/vgdata/lv1 /lv1/
+cd /lv1/
+ls -la
+cd
+tail lin2_Oct/day2-history.txt 
+history
+less lin2_Oct/day2-history.txt
+history | awk '$1 > 837' | cut -c 8- > day2-history.txt
