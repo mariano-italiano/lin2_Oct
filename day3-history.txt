@@ -1,0 +1,111 @@
+df -h
+mount /dev/vgdata/lv1 /lv1/
+cd /lv1/
+ls -la
+lvs
+df -h
+vgs
+lvcreate -L 4G -s -n lv1-snap /dev/vgdata/lv1
+lvs
+rm /lv1/bigfile2
+dd if=/dev/urandom of=/lv1/randomfile bs=1500M count=1
+lvs
+lvconvert --merge /dev/vgdata/lv1
+lvconvert --merge vgdata/lv1
+lvremove /dev/vgdata/lv1-snap 
+lvcreate -L 4G -s -n lv1-snap /dev/vgdata/lv1
+lvconvert --merge vgdata/lv1
+cd 
+umount /lv1 
+lvconvert --merge vgdata/lv1
+lvconvert --mergesnapshot vgdata/lv1
+lvchange --refresh
+lvchange --refresh /dev/vgdata/lv1
+lvs
+lvconvert --mergesnapshot vgdata/lv1
+lvconvert --merge vgdata/lv1
+lvremove /dev/vgdata/lv1
+lvremove /dev/vgdata/lv1-snap 
+lvs
+lvcreate -L 4G -s -n lv1-snap vgdata/lv1
+lvs
+df -h
+lvconvert --merge /dev/vgdata/lv1
+lvconvert --merge /dev/vgdata/lv1-snap 
+lvs
+mount /dev/vgdata/lv1 
+mount /dev/vgdata/lv1 /lv1/
+cd /lv
+cd /lv1/
+ls -la
+lvcreate -L 4G -s -n lv1-snap vgdata/lv1
+lvs
+rm randomfile 
+dd if=/dev/urandom of=/lv1/bigfile2 bs=500M count=1
+lvs
+lvconvert --merge vgdata/lv1-snap
+lvs
+cd
+ls -la /lv1/
+umount /lv1
+lvs
+lvchange --refresh
+lvchange --refresh vgdata/lv1
+watch -n1 lvs
+lvs
+mount /dev/mapper/vgdata-lv1 /lv1
+ls -la /lv1
+lvdisplay vgdata/lv1
+lsblk
+umount /lv1 
+lsblk
+lvremove /dev/vgdata/lv1 
+lvs
+vgs
+vgremove vgdata 
+pvremove /dev/sdb
+pvremove /dev/sdd
+vgs
+pvs
+pvremove /dev/sdc
+pvs
+lsblk
+cd /boot/
+lsl
+ls 
+grep -i crypt config-5.14.0-289.el9.x86_64 
+grep -i dm_crypt config-5.14.0-289.el9.x86_64 
+less config-5.14.0-289.el9.x86_64
+lsmod | grep dm_crypt
+modprobe dm_crypt
+lsmod | grep dm_crypt
+dnf install cryptsetup
+cryptsetup --version
+gdisk /dev/sdb
+lsblk
+cryptsetup -y luksFormat /dev/sdb1 
+cryptsetup luksOpen /dev/sdb1 secret_data
+ls -la /dev/mapper/
+mkfs.xfs /dev/mapper/secret_data  
+mkdir /secret
+mount /dev/mapper/secret_data /secret/
+cd /secret/
+touch test1
+mkdir test2
+ls -la
+touch secretFile
+ls -la
+cd 
+umount /secret 
+cryptsetup luksClose secret_data 
+df -h
+vi /etc/crypttab 
+vi /etc/fstab 
+df -h
+mount /secret
+vi /etc/crypttab 
+cd lin2_Oct/
+tail day2-history.txt 
+history
+tail day2-history.txt 
+history | awk '$1 > 996' | cut -c 8- > day3-history.txt
