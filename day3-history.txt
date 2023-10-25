@@ -109,3 +109,108 @@ tail day2-history.txt
 history
 tail day2-history.txt 
 history | awk '$1 > 996' | cut -c 8- > day3-history.txt
+vi /etc/crypttab 
+reboot
+vi /etc/crypttab 
+vi /etc/fstab 
+mount /secret
+lsblk
+mount 
+vi /etc/fstab 
+blkid
+vi /etc/crypttab 
+reboot
+vi /etc/crypttab 
+blkid
+vi /etc/crypttab 
+vi /etc/fstab 
+systemctl set-default graphical.target 
+reboot
+cd lin2_Oct/
+vi crypttab 
+cp -rp /etc/crypttab .
+vi crypttab
+cd
+df -h
+ls -la /secret/
+umount /secret 
+gdisk 
+lsblk
+gdisk /dev/sdb
+gdisk /dev/sda
+gdisk /dev/sdd
+gdisk /dev/sdc
+lsblk 
+gdisk /dev/sdb
+lsblk
+lsblk
+reboot
+echo $MY_VAR1
+vi .bashrc 
+vi .bash_profile 
+vi /etc/pam.d/sshd 
+vi /etc/ssh/sshd.deny
+passwd testuser1
+vi /etc/ssh/sshd.deny
+systemctl restart sshd
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd 
+cd /var/log
+ls -la
+less audit/audit.log
+cat audit/audit.log | grep student
+less messages
+journalctl -u pam
+journalctl -u pamd
+journalctl -u PAM
+journalctl -u PAMD
+journalctl
+ls 
+less secure
+cat secure | grep -e pam_unix -e student
+usermod -s /bin/bash testuser1
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd 
+vi /etc/ssh/sshd.deny
+vi /etc/pam.d/sshd 
+vi /etc/security/time.conf 
+date
+timedatectl set-timezone Europe/Warsaw
+date
+vi /etc/security/time.conf 
+dnf install authselect-compat
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+less /var/log/tallylog 
+find / -name pam_tally*
+dnf install pam_tally
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+authconfig --enablefaillock --faillockargs="deny=3 unlock_time=120 even_deny_root" --update
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+vi /etc/pam.d/system-auth 
+vi /etc/pam.d/password-auth 
+faillock --user testuser1
+ls -la
+cat secure | grep testuser1
+date
+vi /etc/ssh/ssh.de
+vi /etc/ssh/sshd.deny 
+cat secure | grep testuser1
+vi /etc/pam.d/sshd 
+vi /etc/ssh/sshd.deny 
+vi /etc/security/time.conf 
+tail -f secure
+cd ; cp -rp /etc/security/time.conf lin
+cp -rp /etc/security/time.conf lin2_Oct/
+cp -rp /etc/pam.d/sshd lin2_Oct/
+cp -rp /etc/ssh/sshd.deny lin2_Oct/
+cp -rp /etc/pam.d/system-auth lin2_Oct/
+cp -rp /etc/pam.d/password-auth lin2_Oct/
+tail -n1 lin2_Oct/day3-history.txt 
+history
+less lin2_Oct/day3-history.txt
+history | awk '$1 > 489' | cut -c 8- >> day3-history.txt
+history | awk '$1 > 489' | cut -c 8- >> lin2_Oct/day3-history.txt
