@@ -209,7 +209,144 @@ dnf module install php:7.4
 dnf module reset php -y
 dnf module install php:7.4
 
+ps -ef
+ps -efd
+ps -ef
+ps -efl
+ps -efl | cut -d " " -f 2
+ps -efl | cut -d " " -f 2 | grep Z | wc -l
+ps aux
+ps -ef
+ps aux
+man ps
+ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+uptime
+date
+cat /proc/cpuinfo
+cat /proc/cpuinfo | grep processor | wc -l
+date
+uptime
+ps -U student
+
+ps --ef
+ps -ef
+vi /lib/systemd/system/chronyd.service
+vi /etc/sysconfig/chronyd
+systemctl status chronyd
+pgrep chronyd
+pgrep httpd
+pgrep -u student -l
+pgrep -u root -l
+man ulimit
+ulimit -Sa
+ulimit -Ha
+su - testuser
+ ulimit -f 50
+ulimit -Sa
+cat /dev/urandom > plik_limit
+ls -lah plik_limit
+ulimit -u 10
+ps -U student
+ulimit -f unlimited
+ulimit -Sa
+ulimit -u 14298
+vi nice.sh
+chmod +x nice.sh
+ps -ef
+ps -efld
+nice -n 10 ./nice.sh
+ps -efld | grep nice.sh
+nice -n 10 ./nice.sh &
+vi nice.sh
+nice -n 10 ./nice.sh
+nice -n 10 ./nice.sh &
+ps -efld | grep nice.sh
+renice -60 29293
+ps -efld | grep nice.sh
+vi /etc/security/limits.conf
+kill -l
+vi signals.sh
+chmod +x signals.sh
+./signals.sh &
+kill -2 29815
+ps -ef | grep signals
+kill -15 29815
+ps -ef | grep signals
+./signals.sh
+./signals.sh
+vi signals.sh
+./signals.sh
+vi signals.sh
+sysctl -a
+sysctl -a  | grep -i ip_forward
+sysctl -a  | grep -i swappine
+sysctl -a  | grep -i huge
+sysctl -a  | grep -i default_ttl
+sysctl -a  | grep -i icmp_echo
+sysctl -a  | grep -i pid_max
+sysctl -a  | grep -i thread
+ps -ef
+sysctl -a  | grep -i pid_max
+lsmod
+lsmod | grep -i intel
+lsmod | grep -i vxnet
+lsmod | grep -i net
+lsmod | grep -i vmxnet
+lsmod | grep -i e100
+cd /lib/modules
+ls
+cd 5.14.0-289.el9.x86_64
+ls -la
+find . -type f '*.ko*'
+find . -type f -name '*.ko*'
+find kernel -type f -name '*.ko*' > /root/lin2_Oct/modules_list.txt
+less /root/lin2_Oct/modules_list.txt
+grep crypt /root/lin2_Oct/modules_list.txt
+modprobe dm-crypt
+modprobe --help
+modprobe -r dm_crypt
+modinfo vmxnet3
+cd
+cd lin2_Oct/\
 cd lin2_Oct/
-tail -n3 day3-history.txt 
-history
-history | awk '$1 > 897' | cut -c 8- >> day4-history.txt
+echo 0 > /proc/sys/net/ipv4/ip_forward
+sysctl -a | grep ip_forward
+vi /etc/sysctl.conf
+sysctl -p
+sysctl --help
+sysctl -a | grep ip_forward
+ip a
+ping 192.168.1.90
+vi /etc/sysctl.conf
+sysctl -p
+ping 192.168.1.90
+vi /etc/sysctl.conf
+sysctl -p
+cd /var/logh
+cd /var/log
+ls -la
+journalctl
+journalctl --help
+journalctl -p error
+journalctl -p err
+journalctl -b
+journalctl -u crond.service
+journalctl -u sshd
+journalctl --since=-10min
+journalctl -f
+journalctl -o verbose crond
+journalctl -o verbose -u crond
+journalctl _SELINUX_CONTEXT=kernel
+cd /run/log/journal/
+ls -l
+cd c82189cf478b4556b585ec7703a4bdce/
+ls -la
+cd
+mkdir /var/log/journal
+vi /etc/systemd/journald.conf
+systemctl restart systemd-journald
+cd /var/log/journal/
+ls -la
+systemctl daemon-reload
+systemctl restart systemd-journald
+
