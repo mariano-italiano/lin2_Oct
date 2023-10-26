@@ -1,0 +1,215 @@
+dnf install openldap-servers openldap-clients -y
+dnf install openldap-servers openldap-clients -y --allowerasing --nobest
+systemctl status slapd
+systemctl enable --now slapd
+systemctl status slapd
+dnf repolist
+vi /etc/hosts 
+slappasswd 
+vi adminpw.ldif
+ldapadd --help
+ldapadd -Y EXTERNAL -H ldapi:/// -f adminpw.ldif 
+ls -la /etc/openldap/schema/
+for def in cosine.ldif inetorgperson.ldif nis.ldif ; do ldapadd -H ldapi:/// -f /etc/openldap/schema/$def; done
+for def in cosine.ldif inetorgperson.ldif nis.ldif ; do ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/$def; done
+vi ldapdomain.ldif
+slappasswd 
+vi ldapdomain.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f ldapdomain.ldif 
+vi domaintree.ldif
+ldapadd --help
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f domaintree.ldif 
+vi domaintree.ldif 
+vi oucomputers.ldif
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f oucomputers.ldif 
+wget http://mirror.centos.org/altarch/7/os/aarch64/Packages/migrationtools-47-15.el7.noarch.rpm
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+dnf localinstall migrationtools-47-15.el7.noarch.rpm 
+cd /usr/share/migrationtools/
+ls -la
+cat /etc/passwd
+cat /etc/passwd | tail -n5 | head -n 4
+cat /etc/passwd | tail -n5 | head -n 4 > /root/passwd
+cat /etc/group
+cat /etc/group| tail -n5 | head -n 4 
+cat /etc/group| grep -e student -e netadmin -e devops -e testuser1
+cat /etc/group| grep -e student -e netadmin -e devops -e testuser1 > /root/group
+vi /root/group
+./migrate_group.pl /root/group /root/group.ldif
+vi /root/group.ldif
+sed 's/dc=padl,dc=com/dc=lab,dc=local/g' /root/group.ldif
+sed -i 's/dc=padl,dc=com/dc=lab,dc=local/g' /root/group.ldif
+./migrate_passwd.pl /root/passw /root/passw.ldif
+./migrate_passwd.pl /root/passwd /root/passwd.ldif
+vi /root/passwd.ldif
+sed 's/ou=People,dc=padl,dc=com/ou=Users,dc=lab,dc=local/g' /root/passwd.ldif
+sed -i 's/ou=People,dc=padl,dc=com/ou=Users,dc=lab,dc=local/g' /root/passwd.ldif
+cd 
+cd lin2_Oct/
+vi domaintree.ldif 
+mv ../passwd.ldif .
+vi passwd.ldif 
+vi ../group.ldif .
+mv ../group.ldif .
+vi group.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f group.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f passwd.ldif 
+ldapsearch --help
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "uid=s*" 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "uid=s*" cn loginShell gecos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "cn=Manager"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn=Manager"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn=devops"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(&(cn=devops)(objectClass=posixGroup))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(|(cn=devops)(cn=student))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=Devops" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=devops" cn homeDirectory
+vi modify-devops.ldif
+ldapmodify -x -W -H ldap://localhost -D cn=Manager,dc=lab,dc=local -f modify-devops.ldif 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=devops" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=devops"
+ldapdelete -W -D cn=Manager,dc=lab,dc=local uid=devops,ou=Users,dc=lab,dc=local
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=devops"
+dnf -y install freeipa-server freeipa-server-dns freeipa-client
+ipa-server-install --setup-dns --skip-mem-check 
+systemctl disable --now slapd.service 
+ipa-server-install --setup-dns --skip-mem-check 
+docker ps -a
+docker rm 1170ff049bd0
+docker rm 1170ff049bd0 -f
+ipa-server-install --setup-dns --skip-mem-check 
+kinit admin
+klist
+ipa user-add 
+ipa user-mod mkujawski --password
+rpm -qa | sort > all.packages
+less all.packages
+rpm -qa | grep -i openldap
+rpm -qa | grep -i nano
+rpm -e nano
+rpm -qa | grep -i nano
+dnf install nano
+which yum
+ls -la /usr/bin/yum
+dnf install nano -y 
+vi /etc/resolv.conf 
+dnf install nano -y 
+vi /etc/dnf/dnf.conf 
+echo$ HTTP_PROXY
+echo $HTTP_PROXY
+echo $NO_PROXY
+dnf install netstat
+dnf search netstat
+dnf provides "*netstat"
+wget https://rpmfind.net/linux/centos/8-stream/BaseOS/x86_64/os/Packages/nano-2.9.8-1.el8.x86_64.rpm
+rpm -ivh nano-2.9.8-1.el8.x86_64.rpm 
+dnf remove nano
+rpm -ivh nano-2.9.8-1.el8.x86_64.rpm 
+dnf remove nano
+dnf localinstall nano-5.6.1-5.el9.x86_64 
+ls -la
+dnf localinstall nano-2.9.8-1.el8.x86_64.rpm
+dnf grouplist
+dnf group install "Security Tools"
+dnf group install "Security Tools" -y
+dnf group remove "Security Tools" -y
+dnf history list
+rpm -qa | grep nano
+dnf history undo 28 
+dnf history undo 27
+dnf history undo 28
+dnf history list
+dnf history undo 28
+dnf history redo 28
+dnf history redo 25
+dnf history undo 25
+dnf history undo 27
+dnf history redo 25
+dnf module list
+wget https://rpmfind.net/linux/fedora/linux/updates/testing/39/Everything/x86_64/Packages/k/kernel-6.5.8-300.fc39.x86_64.rpm
+wget https://rpmfind.net/linux/centos/8-stream/BaseOS/x86_64/os/Packages/kernel-4.18.0-518.el8.x86_64.rpm
+wget https://rpmfind.net/linux/opensuse/tumbleweed/repo/oss/x86_64/telnet-1.2-176.5.x86_64.rpm
+ls -la *.tpm
+ls -la *.rpm
+wget https://rpmfind.net/linux/opensuse/distribution/leap/15.2/repo/oss/x86_64/createrepo-0.10.4-lp152.5.4.x86_64.rpm
+rpm -ivh createrepo-0.10.4-lp152.5.4.x86_64.rpm 
+wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-0.20.1-2.el9.x86_64.rpm
+rpm -ivh createrepo_c-0.20.1-2.el9.x86_64.rpm 
+wget https://centos.pkgs.org/9-stream/centos-appstream-x86_64/createrepo_c-libs-0.20.1-2.el9.x86_64.rpm.html
+wget wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-libs-0.20.1-2.el9.x86_64.rpm
+rpm -ivh createrepo_c-libs-0.20.1-2.el9.x86_64.rpm  createrepo_c-0.20.1-2.el9.x86_64.rpm 
+rpm -e createrepo_c-libs
+rpm -e createrepo_c-libs-0.20.1-2.el9.x86_64.rpm  createrepo_c-0.20.1-2.el9.x86_64.rpm 
+rpm -qa | grep -i createrepo
+rpm -e createrepo_c-libs
+dnf remove createrepo_c
+dnf remove createrepo_c-libs
+dnf locallinstall createrepo_c-0.20.1-2.el9.x86_64.rpm
+dnf localinstall createrepo_c-0.20.1-2.el9.x86_64.rpm
+mkdir my-repo
+mv *.rpm my-repo/
+ls -la my-repo/
+createrepo my-repo/
+cd my-repo/
+ls -la
+cd repodata
+ls -la
+vi repomd.xml
+vi /etc/yum.repos.d/centos.repo 
+dnf repolist
+dnf repolist --all
+pwd
+dnf config-manager --add-repo /root/lin2_Oct/my-repo/
+dnf repolist 
+vi /etc/yum.repos.d/my-own.repo
+dnf repolist
+vi /etc/yum.repos.d/root_lin2_Oct_my-repo.repo
+dnf repolist
+dnf config-manager --disablerepo MyOwnRepo
+dnf config-manager --set-disabled MyOwnRepo
+dnf repolist
+dnf config-manager --set-enabled MyOwnRepo
+dnf repolist
+dnf versionlock nano
+dnf install 'dnf-command(versionlock)'
+dnf versionlock nano
+dnf upgrade nano
+dnf versionlock delete nano-0:5.6.1-5.el9.*
+rpm -qa | grep -i nano
+wget https://centos.pkgs.org/8-stream/centos-baseos-x86_64/nano-2.9.8-1.el8.x86_64.rpm.html
+wget http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/nano-2.9.8-1.el8.x86_64.rpm
+rpm -e nano
+dnf localinstall nano-2.9.8-1.el8.x86_64.rpm
+dnf versionlock nano
+dnf upgrade nano
+dnf versionlock delete nano-0:2.9.8-1.el8.*
+dnf upgrade nano
+cd
+
+ping centos9.alb.local
+ping centos9.lab.local
+dnf install ipaserver-client
+dnf module info idm:client
+dnf install @idm:client -y
+ipa-client-install
+ping centos9.lab.local
+ipa-client-install
+ipa-client-install --hostname centos8-client.lab.local --server=centos9.lab.local --domain lab.local --realm LAB.LOCAL --mkhomedir
+dnf module list
+dnf module install php:7.3/minimal
+dnf module remove php:7.3/minimal
+dnf module remove php:7.4
+dnf module remove php:7.4/devel
+dnf module reset php
+dnf module remove php:7.4/devel
+dnf module install php:7.3/minimal
+dnf module remove php:7.3/minimal
+dnf module install php:7.4
+dnf module reset php -y
+dnf module install php:7.4
+
+cd lin2_Oct/
+tail -n3 day3-history.txt 
+history
+history | awk '$1 > 897' | cut -c 8- >> day4-history.txt

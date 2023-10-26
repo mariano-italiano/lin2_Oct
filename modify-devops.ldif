@@ -1,0 +1,4 @@
+dn: uid=devops,ou=Users,dc=lab,dc=local
+changetype: modify
+replace: shadowWarning
+shadowWarning: 10

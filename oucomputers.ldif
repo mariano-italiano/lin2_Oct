@@ -1,0 +1,3 @@
+dn: ou=Computers,dc=lab,dc=local
+objectClass: organizationalUnit
+ou: Computers

@@ -1,0 +1,71 @@
+dn: uid=student,ou=Users,dc=lab,dc=local
+uid: student
+cn: Student
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$6$bbwqyl998U8ijXob$NJrwGkiCmcGvQ9JsPaf3BftBmp.JBbVQhv9yJTIDDx5ho/5JvinlFrCvSZDMYw6lhFxYP0m4ojcqlvd6ygQwI.
+shadowLastChange: 19656
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 5
+loginShell: /bin/bash
+uidNumber: 10000
+gidNumber: 10000
+homeDirectory: /home/student
+gecos: Student
+
+dn: uid=netadmin,ou=Users,dc=lab,dc=local
+uid: netadmin
+cn: netadmin
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$6$4O/vC9HBz0Ji/gsK$Ta0/kviarUzHtsnMy8YLgHb89mbsUgIWZgq/JiNBi9GuXpqJEaJ1ImEuOMtdPov06hL/UkJFUNCID5UFwFDsL1
+shadowLastChange: 19655
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 10010
+gidNumber: 10020
+homeDirectory: /home/netadmin
+
+dn: uid=devops,ou=Users,dc=lab,dc=local
+uid: devops
+cn: devops
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$6$H2iXeLpGDpMDGlqF$wLQySl5fF5j3aeneMC6ziZDN02riOdKE7SqcAkEYxIBt68S5MdAnK5r6iBv17MNF68mxJPPqDSZfKTD3e7Tp5.
+shadowLastChange: 19655
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 10020
+gidNumber: 10030
+homeDirectory: /home/devops
+
+dn: uid=testuser1,ou=Users,dc=lab,dc=local
+uid: testuser1
+cn: Test user 1
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$6$7BYUCo6tzfx0o9nm$SB59FsjzZeBI3I3Eqwg8PTcf6YJnpwLGvr5Czc7ybrKrsoQUiRF6SwrYyt3Uqf.tSHa.M7upD7K2LRdZvZRDt1
+shadowLastChange: 19655
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+shadowExpire: 19844
+loginShell: /bin/bash
+uidNumber: 10030
+gidNumber: 10040
+homeDirectory: /home/testuser1
+gecos: Test user 1
+

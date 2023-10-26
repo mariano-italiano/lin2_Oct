@@ -1,0 +1,28 @@
+dn: cn=student,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: student
+userPassword: {crypt}x
+gidNumber: 10000
+
+dn: cn=netadmin,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: netadmin
+userPassword: {crypt}x
+gidNumber: 10020
+
+dn: cn=devops,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: devops
+userPassword: {crypt}x
+gidNumber: 10030
+
+dn: cn=testuser1,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: testuser1
+userPassword: {crypt}x
+gidNumber: 10040
+
