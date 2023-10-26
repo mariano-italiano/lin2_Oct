@@ -349,4 +349,4 @@ cd /var/log/journal/
 ls -la
 systemctl daemon-reload
 systemctl restart systemd-journald
-
+systemd-analyze
