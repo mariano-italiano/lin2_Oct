@@ -429,3 +429,94 @@ cd /samba/
 
 #####################################
  
+ls -la
+ls -laZ
+ps -efZ
+id -Z
+sudo dnf install setroubleshoot-server
+sudo dnf install policycoreutils-devel policycoreutils--python
+sudo dnf install policycoreutils-devel policycoreutils-python
+sudo dnf provides "*\sealert *\semanage *\sepolicy"
+sudo dnf provides "*\sealert"
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+sudo systemctl status sshd
+journalctl -t setroubleshoot
+sudo journalctl -t setroubleshoot
+journalctl --help
+less /var/log/messages
+sudo less /var/log/messages
+sealert -l c26c5b78-a406-421b-9961-82bee1c61357
+sudo journalctl -t setroubleshoot
+semanage port -l
+sudo semanage port -l
+sudo journalctl -t setroubleshoot
+semanage port -a -t ssh_port_t -p tcp 2222
+sudo semanage port -a -t ssh_port_t -p tcp 2222
+sudo semanage port -l | grep ssh_port
+systemctl status sshd
+sudo systemctl status sshd
+sudo systemctl restart sshd
+sudo systemctl status sshd
+semanage port -l
+sujdo semanage port -l
+sudo semanage port -l
+sudo semanage port -l | grep -i http
+sudo semanage port -l | grep -i squid
+semanage fcontext -a
+sudo semanage fcontext -a
+sudo semanage fcontext -l
+sudo dnf group list
+sudo dnf group install  "Basic Web Server"
+mkdir /web/docs
+mkdir /web/docs -p
+sudo mkdir /web/docs -p
+vi /etc/hosts
+vi /etc/httpd/conf/httpd.conf
+sudo vi /etc/httpd/conf/httpd.conf
+vi /etc/httpd/conf.d/my-web.conf
+sudo vi /etc/httpd/conf.d/my-web.conf
+vi /web/docs/index.html
+sudo vi /web/docs/index.html
+sudo systemctl restart httpd
+less /var/log/messages
+sudo less /var/log/messages
+sudo tail -f /var/log/messages
+sealert -l 7eacc05b-3cfa-4d88-976f-8a4a1814831f
+ls -laZ /var/www/html
+sudo semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+ls -la /web
+ls -laZ /web
+ls -laZ /web/docs/
+sudo semanage fcontext -m -t httpd_sys_content_t "/web(/.*)?"
+ls -laZ /web/docs/
+ls -laZ /web
+sudo -i
+ls -laZ /web/docs/
+sudo semanage fcontext -l | grep "/web"
+restorecon -Rv /web
+sudo restorecon -Rv /web
+ls -laZ /web/docs/
+ls -laZ /web
+semanage --help
+semanage fcontext --help
+getsebool -a | grep -e nfs -e ftp
+getsebool -a | grep user_exec
+sudo dnf install mariadb-server
+mkdir /mariadb
+sudo mkdir /mariadb
+sudo vi /etc/my.cnf.d/mariadb-server.cnf
+sudo systemctl start mariadb.service
+sudo journalctl -t setroubleshoot
+less /var/log/messages
+sudo less /var/log/messages
+ls -laZ /var/lib/mysql/
+sudo chown mysql:mysql /mariadb/
+sudo systemctl start mariadb.service
+sudo less /var/log/messages
+sudo journalctl -t setroubleshoot
+sudo semanage fcontext -a -t mysqld_db_t "/mariadb(/.*)?"
+sudo restorecon -Rv /mariadb/
+sudo systemctl start mariadb.service
+sudo systemctl status mariadb.service
+mysql_secure_installation
