@@ -1,0 +1,431 @@
+vi /etc/logrotate.conf 
+vi /etc/logrotate.d/dnf
+ls -la /var/log
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+ls -la /var/log/
+vi /etc/ssh/sshd_config
+vi /etc/rsyslog.conf 
+vi /etc/rsyslog.d/sshd.conf
+systemctl restart rsyslog.service 
+ls -la /var/log/
+less -la /var/log/sshd.log 
+ls -la /var/log/sshd.log
+ls -lha /var/log/sshd.log
+vi /etc/logrotate.d/sshd
+logrotate -d /etc/logrotate.d/sshd 
+logrotate -f /etc/logrotate.d/sshd 
+ls -la /var/log
+ls -lah /var/log
+vi /etc/logrotate.d/sshd
+vi /etc/logrotate.conf 
+vi /etc/logrotate.d/sshd
+rm /var/log/sshd.log
+gzip -d /var/log/sshd.log.1.gz 
+ls -lah /var/log/sshd.log
+ls -lah /var/log/sshd.log.1 
+mv /var/log/sshd.log.1 /var/log/sshd.log
+ls -la /var/log/sshd.log
+ls -lha /var/log/sshd.log
+logrotate -f /etc/logrotate.d/sshd 
+ls -lha /var/log/sshd.log
+ls -lha /var/log/ssh*
+tar -tvf /var/log/sshd.log-20231027.gz
+gzip --help
+gzip -l /var/log/sshd.log-20231027.gz
+gzip -c /var/log/sshd.log-20231027.gz
+gzip -d -k /var/log/sshd.log-20231027.gz
+ls -la /var/log/sshd.log*
+vi /etc/logrotate.d/sshd
+logrotate -f /etc/logrotate.d/sshd 
+ls -la /var/log/sshd.log*
+cd lin2_Oct/
+cp -rp /etc/logrotate.d/sshd .
+cp -rp /etc/logrotate.d/sshd logrotate-sshd
+mv sshd pam-sshd
+cp -rp /etc/ssh/sshd_config .
+vi /etc/rsyslog.d/sshd.conf rsyslog-sshd.conf
+cp -rp /etc/rsyslog.d/sshd.conf rsyslog-sshd.conf
+git status
+vi /etc/rsyslog.conf 
+systemctl restart rsyslog.service 
+ls -la /var/log/
+vi /etc/rsyslog.conf 
+systemctl restart rsyslog.service 
+ls -la /var/log/
+vi /etc/rsyslog.conf 
+vi /etc/rsyslog.d/filter-host.conf
+systemctl restart rsyslog.service 
+systemctl restart sshd
+ls -la /var/log/
+systemctl restart rsyslog.service 
+systemctl restart sshd
+ls -la /var/log/
+vi /etc/rsyslog.d/filter-host.conf
+touch /var/log/centos9.log
+systemctl restart sshd
+less /var/log/centos9.log
+vi /etc/rsyslog.d/filter-host.conf
+systemctl restart rsyslog.service 
+vi /etc/rsyslog.d/filter-host.conf
+systemctl restart chronyd
+systemctl restart sshd
+ls -la /var/log/
+ls -la /var/log/centos9
+systemctl restart sshd
+systemctl restart chronyd
+vi /etc/rsyslog.conf 
+systemctl restart chronyd
+systemctl restart sshd
+systemctl status firewalld.service 
+curl -v telnet://192.168.1.82
+curl -v telnet://192.168.1.82:514
+curl -v telnet://192.168.1.82:22
+vi /etc/rsyslog.conf 
+vi /etc/rsyslog.d/filter-host.conf 
+vi /etc/rsyslog.conf 
+systemctl restart sshd
+systemctl restart rsyslog.service 
+systemctl restart sshd
+ip a
+ip addr add 192.168.1.190/24 dev ens33 
+ip a
+ifconfig 
+ip a s
+ip a
+nmcli connection down ens33 ; nmcli connection up ens33 
+ip a
+ip route show
+route -n
+nmcli connection show
+nmcli device status
+nmcli device show
+nmcli device show ens33
+nmcli connection add con-name DMZ ifname ens33 type ethernet ipv4.addresses 192.168.1.190/24 gw4 192.168.1.1
+nmcli connection show
+nmcli device show DMZ
+nmcli device show ens33 
+nmcli connection show DMZ
+nmcli connection modify DMZ autoconnect yes
+nmcli connection modify DMZ ipv4.dns-search lab.local
+nmcli connection show DMZ
+nmcli c e DMZ 
+ls -la
+ls -la ../
+vi ../.nmcli-history
+nmtui-edit
+nmcli connection show MZ
+nmcli connection show DMZ
+nmtui
+nmtui-hostname 
+nmtui-connect 
+vi /etc/resolv.conf 
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+nmtui
+vi /etc/resolv.conf 
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+nmtui
+vi /etc/resolv.conf 
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+systemctl status firewalld.service 
+systemctl start firewalld.service
+systemctl status firewalld.service 
+firewall-cmd --list-all
+systemctl stop firewalld.service 
+systemctl start firewalld.service 
+firewall-cmd --state
+firewall-cmd --get-default-zone 
+firewall-cmd --get-zones
+firewall-cmd --zone trusted --list-all
+firewall-cmd --zone home --list-all
+firewall-cmd --zone dmz --list-all
+firewall-cmd --list-all
+firewall-cmd --zone public --add-port=514/udp
+firewall-cmd --zone public --add-port=514/tcp
+firewall-cmd --list-all
+firewall-cmd --reload
+firewall-cmd --list-all
+firewall-cmd --zone public --add-port=514/tcp --permanent 
+firewall-cmd --zone public --add-port=514/udp --permanent 
+firewall-cmd --reload
+firewall-cmd --list-all
+firewall-cmd --zone public --add-service=ldap --permanent 
+firewall-cmd --reload
+firewall-cmd --list-all
+firewall-cmd --zone public --add-service=ldaps --permanent 
+firewall-cmd --reload
+firewall-cmd --info-service=kube-apiserver
+cd /usr/lib/firewalld/
+ls -la
+cd zones/
+ls -la
+less public.xml
+cd ../services/
+ls
+less kube-apiserver.xml 
+cp -rp kube-apiserver.xml my-custom-app.xml
+vi .
+vi my-custom-app.xml
+firewall-cmd --reloa
+firewall-cmd --reload 
+firewall-cmd --zone public --add-service=my-custom-app --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+cp -rp my-custom-app.xml /root/lin2_Oct/
+cd
+cd lin2_Oct/
+history
+tail -n day4-history.txt 
+tail -n1 day4-history.txt 
+history | awk '$1 > 998' | cut -c 8- > day5-history.txt
+
+systemctl stop firewalld.service
+dnf install -y iptables-services iptables-utils
+iptables -L -v -n
+systemctl start iptables.service
+iptables -L -v -n
+ping wp.pl
+iptables -F
+iptables -L -v -n
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
+iptables -L -v -n
+ping localhost
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -L -v -n
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -L -v -n
+iptables -I 2 OUTPUT -p tcp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+ping wp.pl
+iptables -I 2 INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -I INPUT 2 -m state --state ESTABLISHED,RELATED -j ACCEPT
+ping wp.pl
+iptables -A OUTPUT -p icmp -j ACCEPT
+ping wp.pl
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
+iptables -L -v -n
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables-restore /etc/sysconfig/iptables
+iptables-restore -h
+iptables-restore /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables -L -v -n
+history
+history | awk '$1 > 998' | cut -c 8-
+dnf install nfs-utils
+dnf install nfs-server
+systemctl status nfs-server.service
+mkdir /nfs-share/{Production,Development} -p
+chgrp student /nfs-share/Development/
+chmod 770 /nfs-share/Development/
+chgrp student /nfs-share/Production/
+chmod 740 /nfs-share/Production/
+systemctl enable --now nfs-server.service
+systemctl enable --now rpcbind
+systemctl status rpcbind.
+systemctl status rpcbind.service
+systemctl status nfs-server.service
+vi /etc/idmapd.conf
+vi /etc/nfs.conf
+man /etc/exports.d/
+man /etc/exports
+man exportfs
+vi /etc/exports
+exportfs --help
+man exportfs
+exportfs -rav
+showmount -e localhost
+systemctl stop iptables.service
+cd /nfs-share/Development/
+ls -la
+cd
+cd lin2_Oct/
+ls -la
+git status
+vi nfs-fstab
+kinit admin
+klist
+vi /etc/krb5.keytab
+ipa-getkeytab -p nfs/centos9.lab.local@LAB.LOCAL -k /etc/krb5.keytab
+klist -k
+mkdir /secureshare
+chmod 777 /secureshare
+vi /etc/exports
+systemctl restart nfs-server.service
+exportfs -rav
+showmount -e localhsot
+showmount -e 192.168.1.90
+dnf install samba samba-common samba-client
+systemctl status smb
+systemctl start smb
+systemctl status smb
+cat /etc/group
+cta /etc/passwd
+cat/etc/passwd
+cat /etc/passwd
+useradd alicja
+useradd adam
+usermod -aG devops alicja
+mkdir /devops
+chmod 2770 /dev
+chmod 2770 /devops/
+ls -la /*
+ls -la /
+chgrp devops /devops/
+chown adam /devops/
+ls -la /devop
+ls -la /devops/
+mkdir /smb-public
+chown student:student /smb-public
+ls -la /smb-public
+vi /etc/samba/smb.conf
+testparm
+systemctl restart smb
+smbpasswd --help
+smbpasswd -a adam
+smbpasswd -a alicja
+smbpasswd -a student
+smbstatus
+cd /smb-public/
+rpm -qa | sort > packages.txt
+ls -la
+smbstatus
+vi /etc/samba/smb.conf
+cd /dev
+cd /devops/
+ls -la
+id alicja
+chmod 2770 /devops/
+ls -la
+chmod -R 2770 /devops/
+ls -la
+systemctl restart smb
+vi /etc/samba/smb.conf
+systemctl restart smb
+ls -la
+mkdir /archiwumX
+groupadd fbi
+useradd mulder -g fbi
+useradd scully -g fbi
+useradd fbiuser -g fbi
+chgrp fbi /archiwumX/
+chmod 2770 /archiwumX/
+vi /etc/samba/smb.conf
+systemctl restart smb.service
+smbpasswd -a mulder
+smbpasswd -a scully
+smbpasswd -a fbiuser
+journalctl
+journalctl -b
+vi /etc/samba/smb.conf
+
+######### CENTOS 8 history #######
+
+
+showmount -e 192.168.1.90
+dnf install nfs-utils
+mkdir /nfs
+mount -t nfs -o vers=4.2 192.168.1.90:/nfs-share/Development /nfs/
+df -h
+cd /nfs
+su - student
+vi /etc/fstab
+umount /nfs
+df -h
+mount -a
+vi /etc/fstab
+mount -a
+df -h
+su - student
+umount /nfs
+df -h
+dnf install autofs
+vi /etc/auto.master
+mkdir /nfs/{Prod,Dev} -p
+vi /etc/auto.master
+vi /etc/auto.nfs-share
+systemctl restart autofs
+df -h
+cd /nfs
+df -h
+cd ..
+df -h
+cd
+systemctl restart nfs-server.service
+cd /nfs/
+df -h
+ls -la
+cd
+cd /nfs/Prod
+su - student
+ls -la /nfs/Prod/
+chmod 770 /nfs/Dev
+df -h
+mkdir /nfs-share/{Dev,Prod}
+mkdir /nfs-share/{Dev,Prod} -p
+chmod 770 /nfs-share/Dev/
+chmod 740 /nfs-share/Prod
+chgrp student /nfs-share/Prod
+chgrp student /nfs-share/Dev/
+vi /etc/auto.master
+df -h
+ls -la /nfs-share/
+systemctl restart autofs.service
+su -student
+su - student
+mkdir /securenfs
+mount -t nfs -o sec=krb5p centos9.lab.local:/secureshare /securenfs/
+df -h
+klist
+klist -k
+mount
+klist
+dnf install samba-clients cifs-utils
+dnf provides "*smblient*"
+dnf provides "*smbclient*"
+dnf install samba-client cifs-utils
+smbclient -U student //192.168.1.90/smb-public
+smbclient -U alicja //192.168.1.90/devops
+mkdir /samba
+mount -o username=alicja //centos9.lab.local/devops /samba/
+cd /samba/
+ls -la
+vi adam.txt
+vi /root/smbcreds
+chmod 600 /root/smbcreds
+vi /etc/fstab
+df -h
+umount /samba
+cd
+umount /samba
+df -h
+mount -a
+df -h
+umount /samba
+mount -o username=mulder //centos9.lab.local/archiwumX /samba/
+cd /samba/
+ls -la
+touch plik1
+ls -la
+cd
+umount /samba
+mount -o username=fbiuser //centos9.lab.local/archiwumX /samba/
+cd /samba/
+
+#####################################
+ 

@@ -1,0 +1,4 @@
+/nfs-share/Development		192.168.1.82(rw,sync)
+/nfs-share/Production		192.168.1.82(ro,sync)
+
+/secureshare			*(sec=krb5p,rw)

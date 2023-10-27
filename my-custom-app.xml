@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>My custom app service</short>
+  <description>My custom app service for my application for sth...</description>
+  <port protocol="tcp" port="8080"/>
+</service>
+
